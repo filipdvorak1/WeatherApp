@@ -81,30 +81,6 @@ class viewmodel @Inject constructor(
         }
     }
 
-//    suspend fun updateFav(weatherItem: FavouriteEntity) {
-//
-//        val value = getWeather(weatherItem.city)
-//        if (value.data != null) {
-//            val WeatherModel = value.data!!
-//
-//            val gson = Gson()
-//            val json = gson.toJson(WeatherModel)
-//
-//            val updatevalue = FavouriteEntity(
-//                city = WeatherModel.city?.name ?: "unknowncity",
-//                country = WeatherModel.city?.country ?: "unknowncity",
-//                data = json ,
-//                date = System.currentTimeMillis().toString()
-//
-//            )
-//
-//
-//
-//            weatherRepository.updateFav(updatevalue)
-//        }
-//
-//    }
-
     suspend fun getLiveWeather(city: String) {
 
         val value = getWeather(city)
@@ -128,9 +104,6 @@ class viewmodel @Inject constructor(
 
 
     }
-
-
-
 
     fun getFavList(): Flow<List<FavouriteEntity>> {
         return weatherRepository.getFavourites()
